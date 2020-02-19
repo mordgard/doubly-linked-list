@@ -40,7 +40,24 @@ class LinkedList {
   }
 
   insertAt(index, data) {
-    // TODO Continue here
+    const node = new Node(data);
+    let counter = 0;
+    let currentNode = this._head;
+
+    while (true) {
+      if (index === counter) {
+        const prevNode = currentNode.prev;
+        currentNode.prev = node;
+        node.next = currentNode;
+        node.prev = prevNode;
+        prevNode.next = node;
+        this.length++;
+        return;
+      }
+
+      currentNode = currentNode.next;
+      counter++;
+    }
   }
 
   isEmpty() {
@@ -74,10 +91,11 @@ class LinkedList {
       currentNode = currentNode.next;
       counter++;
     }
+    this.length--;
   }
 
   reverse() {
-    // 🤔
+    // 🤔 Continue here
   }
 
   indexOf(data) {
