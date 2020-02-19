@@ -85,13 +85,13 @@ class LinkedList {
         currentNode.prev = null;
         prevNode.next = nextNode;
         nextNode.prev = prevNode;
+        this.length--;
         return;
       }
 
       currentNode = currentNode.next;
       counter++;
     }
-    this.length--;
   }
 
   reverse() {
